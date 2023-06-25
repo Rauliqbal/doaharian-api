@@ -1,6 +1,5 @@
 const express = require("express");
 const fs = require("fs");
-const dataFile = fs.readFileSync("./data/doa.json", "utf-8");
 
 const app = express();
 const port = 8000;
@@ -17,9 +16,16 @@ fs.readFile("./data/doa.json", "utf-8", (err, jsonString) => {
 });
 
 app.get("/", (req, res) => {
-   res.send(dataFile);
+   res.json({ nama: " Rauliqbal" });
+});
+
+app.get("/api", (req, res) => {
+   res.setHeader("Content-Type", "application/json");
+   res.send(fs.readFileSync("./data/doa.json", "utf-8"));
 });
 
 app.listen(port, () => {
    console.log("API Berjalan");
 });
+
+module.exports = express;
