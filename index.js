@@ -16,7 +16,7 @@ fs.readFile("./data/doa.json", "utf-8", (err, jsonString) => {
 });
 
 app.get("/", (req, res) => {
-   res.json({ nama: " Rauliqbal" });
+   res.json({ nama: " Rauliqbal", api: "doaharian-api.vercel.app/api" });
 });
 
 app.get("/api", (req, res) => {
@@ -27,3 +27,5 @@ app.get("/api", (req, res) => {
 app.listen(port, () => {
    console.log("API Berjalan");
 });
+
+module.exports = app;
